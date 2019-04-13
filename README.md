@@ -8,7 +8,8 @@ NPM - [install](https://www.npmjs.com/get-npm)<br>
 Clone the project [here](https://github.com/nathimiki/Kuada_N_ChatApp)<br>
 Install dependencies with NPM install<br>
 Css compiling with Gulp<br>
-Add the folder to your localhost
+
+'npm install' to download required plugins 'npm run watch' to watch sass and save as compressed css 'npm run start' to get it running locally on port 3000
 
 ## Built With
 
