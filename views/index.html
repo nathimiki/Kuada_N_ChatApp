@@ -7,8 +7,13 @@
 	<script src="https://unpkg.com/vue"></script> 
 </head>
 <body>
-	<main id="app">		
+	<main id="app">
+		
 		<section class="form-container">
+			<div class="header">
+				<img src="/images/logo.png" alt="logo">
+				<a href="/loggedout" v-on:click.prevent="forceDisconnect">Leave Chat</a>
+			</div>	
 			<label for="nickname">Your Nickname (optional)</label>
 			<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
 			
