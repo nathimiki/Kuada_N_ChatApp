@@ -12,10 +12,10 @@ Add the folder to your localhost
 
 ## Built With
 
-node.js - javascript runtime
-socket.io - realtime engine
-vue.js - javascript framework
-sass - style manager
+node.js - javascript runtime<br>
+socket.io - realtime engine<br>
+vue.js - javascript framework<br>
+sass - style manager<br>
 
 ## Authors
 
