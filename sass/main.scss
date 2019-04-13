@@ -78,6 +78,33 @@ form {
 	li:nth-child(odd) { background: #eee; }
 }
 
+.nicknameBox{
+	display: none;
+	z-index: 5;
+	form{
+		margin: 5% auto;
+		width: 100%;
+		padding: 30px;
+		background-color: #F94000;
+		
+	}
+}
+
+.ThenicknameBox{
+	display: block;
+}
+
+a {
+	color: #F94000;
+	text-decoration: none;
+}
+
+.logOut{
+	background-image: url("../images/dark_wall.png");
+	text-align: center;
+}
+
+
 // imports
 
 @import 'modules/_message';
