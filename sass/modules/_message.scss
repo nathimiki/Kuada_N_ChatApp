@@ -1,6 +1,8 @@
 .new-message { 
     span { font-size: 0.8rem; display: block; margin-bottom: 2px; }
 
+    animation: message 2s linear;  
+
     width: 45%;
     padding: 8px 12px;
     background-color: #F94000; 
@@ -11,8 +13,52 @@
     clear: both;
 }
 
+@keyframes message {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+      }
+    
+      10%,
+      20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+      }
+    
+      30%,
+      50%,
+      70%,
+      90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      }
+    
+      40%,
+      60%,
+      80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      }
+    
+      to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  
+
 .my-message {
     float: right !important;
     background-color: #F9CF00;
     color: white;
+}
+
+.error{
+    opacity: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+.msg-error, .nickname-error{
+    opacity: 1;
 }

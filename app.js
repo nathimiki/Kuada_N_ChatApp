@@ -14,10 +14,16 @@ app.get('/', (req, res, next) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/logout', (req, res, next) => {
+    res.sendFile(__dirname + '/views/logout.html');
+});
+
 // create server variable for socket.io to use
 const server = app.listen(port, () => {
     console.log(`app is running on port ${port}`);
 });
+
+var users = [];
 
 // plug in the chat app package
 io.attach(server);
@@ -35,7 +41,13 @@ io.on('connection', function(socket) {
         io.emit('chat message', { id: `${socket.id}`, message: msg });
     });
 
-    socket.on('disconnect', function() {
-        console.log('a user has disconnected');
+    //listen for user dis connect
+    socket.on('log disconnect', function(name){
+        let index = users.map(function(e) { return e.name; }).indexOf(name.name);
+        console.log('index: ' + index, name.name );
+        if (index > -1) {
+            users.splice(index, 1);
+         }
+        io.emit('userDisconnect', {message: name, userList: users});
     });
 });

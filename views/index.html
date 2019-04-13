@@ -7,22 +7,32 @@
 	<script src="https://unpkg.com/vue"></script> 
 </head>
 <body>
-	<main id="app">
-		
+	<audio class="sound">
+		<source src="/audio/msg.mp3" type="audio/mpeg">
+	</audio>
+	<main id="app">		
 		<section class="form-container">
-			<div class="header">
+			<div class="logo">
 				<img src="/images/logo.png" alt="logo">
-				<a href="/loggedout" v-on:click.prevent="forceDisconnect">Leave Chat</a>
+				<a href="/logout" v-on:click.prevent="logDisconnect">Log Out</a>
 			</div>	
-			<label for="nickname">Your Nickname (optional)</label>
+			<!--label for="nickname">Your Nickname (optional)</label>
 			<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
-			
+			-->
+			<section class="nicknameBox" :class="{ ThenicknameBox : shownicknameBox }">
+					<form>
+						<div class="error" :class="{ 'nickname-error' : nicknameError }"><p>Choose a nickname to start!</p></div>
+						<label for="nickname">Your Nickname</label>
+						<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+						<input type="submit" value="LOG IN" @click.prevent="whiteNickname">
+					</form>
+				</section>	
 			<form>
-				<label for="message">Something to say?</label>
+				<label for="message">White your message here:</label>
 				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
 				<input type="submit" @click.prevent="dispatchMessage">
 			</form>
-		</section>
+			</section>
 		
 		<section class="messages">
 			<ul id="messages" v-for="message in messages">
